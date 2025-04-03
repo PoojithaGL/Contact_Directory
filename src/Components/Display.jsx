@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Display.css";
 import PhoneContext from "./PhoneContext";
 
@@ -11,10 +11,19 @@ const Display = () => {
     handleNumber,
     handleAdd,
     handleDelete,
-    handleEdit
+    handleEdit,
+    setContacts,
   } = useContext(PhoneContext);
   const [isEdit,setisEdit] = useState(false);
   const[contact,setContact]=useState({});
+
+
+  useEffect(() => {
+    const localStringContacts = localStorage.getItem('CONTACTS') || '[]';
+    const localArrayContacts = JSON.parse(localStringContacts);
+    setContacts(localArrayContacts);
+
+  },[])
 
  const onNameChange = (event) =>{
   handleName(event.target.value);
