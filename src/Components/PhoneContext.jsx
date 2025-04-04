@@ -20,18 +20,23 @@ export const PhoneProvider = ({ children }) => {
       if (number.length !== 10) {
         return;
       }
+      let newContacts = [];
       if (isEdit) {
         const otherContacts = contacts.filter(({ id }) => contactId !== id);
-        setContacts([
+        newContacts=[
           ...otherContacts,
           { name, number, id: otherContacts.length + 1 },
-        ]);
+        ];
       } else {
         setContacts((previousContacts) => [
           ...previousContacts,
           { name, number, id: contacts.length + 1 },
         ]);
+        newContacts = [...contacts, { name, number, id: contacts.length + 1 }];
       }
+      
+      setContacts(newContacts);
+      localStorage.setItem('CONTACTS', JSON.stringify(newContacts));
       setName("");
       setNumber("");
     }
@@ -48,6 +53,7 @@ export const PhoneProvider = ({ children }) => {
         name,
         number,
         contacts,
+        setContacts,
         handleName,
         handleNumber,
         handleAdd,

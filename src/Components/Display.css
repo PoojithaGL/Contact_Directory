@@ -1,19 +1,18 @@
 .ContactsContainer {
-  height: 300px;
   width: 300px;
   background-color: whitesmoke;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top: 50px;
+  padding-top: 20px;
   color: black;
   border-radius: 10px;
   outline: gray;
+  padding-bottom: 30px;
 }
 .AddContacts input {
   width: 250px;
   height: 50px;
-  outline: none;
   margin-bottom: 30px;
   color: black;
   background-color: rgb(244, 239, 239);
@@ -33,22 +32,14 @@
 .DetailsContainer {
   display: flex;
   flex-direction: column;
-  height: 98%;
-  width: 98%;
   background-color: rgb(244, 239, 239);
   margin-top: 40px;
   text-align: left;
   color: black;
   border-radius: 10px;
-  padding-left: 30px;
+  padding-left: 20px;
 }
 
-/* .DetailsContainer input {
-    width: 200px;
-    height: 50px;
-    margin-right: 20px;
-    background-color: rgb(185, 35, 148);
-  } */
 
 .DeleteButton {
   background-color: rgb(236, 72, 72);
